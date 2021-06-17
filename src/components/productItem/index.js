@@ -25,7 +25,7 @@ const ProductItem = (props) => {
                             name={ind < Math.floor(avgRating) ? "star" : ind < Math.ceil(avgRating) ? "star-half-full" : "star-o"} 
                             size={18} 
                             color={'#e47911'} 
-                            key={ind}/>
+                            key={`${elem.id} - ${ind}`}/>
                         ))}
                         <Text>{ratings}</Text>
                     </View>
