@@ -3,8 +3,10 @@ import { View, Text} from 'react-native';
 import styles from './styles';
 import product from '../../data/product';
 import {Picker} from '@react-native-picker/picker';
+import QuantitySelector from '../../components/QuantitySelector'
 const ProductScreen = () => {
-    const [selectedOption, setSelectedOption] = useState('');
+    const [selectedOption, setSelectedOption] = useState(product.options ? product.options[0] : null);
+    const [selectedQuantity, setSelectedQuantity] = useState(0);
     
     return (
         <View>
@@ -32,6 +34,8 @@ const ProductScreen = () => {
             </Text>
 
             {/* Quantity selector */}
+
+            <QuantitySelector quantity={selectedQuantity} setQuantity={setSelectedQuantity}/>
 
             {/* button */}
 
