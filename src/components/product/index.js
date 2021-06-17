@@ -19,36 +19,19 @@ const ProductItem = (props) => {
                 <View style= {styles.rightContainer}>
                     <Text style={styles.title} numberOfLines={3}>{title}</Text>
                     <View style={styles.ratingsContainer} >
-                        <FontAwesome 
+                        {[0,0,0,0,0].map((elem, ind) => (
+                            <FontAwesome 
                             style={styles.star} 
-                            name="star" 
+                            name={ind < Math.floor(avgRating) ? "star" : ind < Math.ceil(avgRating) ? "star-half-full" : "star-o"} 
                             size={18} 
-                            color={'#e47911'} />
-                        <FontAwesome 
-                            style={styles.star} 
-                            name="star" 
-                            size={18} 
-                            color={'#e47911'} />
-                        <FontAwesome 
-                            style={styles.star} 
-                            name="star" 
-                            size={18} 
-                            color={'#e47911'} />
-                        <FontAwesome 
-                            style={styles.star} 
-                            name="star-half-full" 
-                            size={18} 
-                            color={'#e47911'} />
-                        <FontAwesome 
-                            style={styles.star} 
-                            name="star-o" 
-                            size={18} 
-                            color={'#e47911'} />
+                            color={'#e47911'} 
+                            key={ind}/>
+                        ))}
                         <Text>{ratings}</Text>
                     </View>
                     <Text style={styles.price}> 
                         from ${price} 
-                        <Text style={styles.oldPrice}>  ${oldPrice}</Text>
+                        {oldPrice && <Text style={styles.oldPrice}>  ${oldPrice}</Text>}
                     </Text>
                 </View>
             </View>

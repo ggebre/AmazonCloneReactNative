@@ -9,7 +9,7 @@ const HomeScreen = () => {
     return (
         <View style={styles.page}>
             {
-                products.map(product => (<ProductItem item={product}/> ) )
+                products.map((product, index) => (<ProductItem item={product} key={index}/> ) )
             }
               
         </View>
