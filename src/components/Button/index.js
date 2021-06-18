@@ -1,10 +1,10 @@
 import React from 'react'; 
 import { Text, Pressable, StyleSheet} from 'react-native';
 
-const Button = ({text, onPress}) => {
+const Button = ({text, onPress, containerStyle}) => {
     
     return (
-        <Pressable onPress={onPress} style={styles.root}>
+        <Pressable onPress={onPress} style={[styles.root, containerStyle]}>
             <Text style={styles.text}>{text}</Text>
         </Pressable>
     )
@@ -13,7 +13,7 @@ const Button = ({text, onPress}) => {
 const styles = StyleSheet.create({
     root: {
         backgroundColor: '#e47911',
-        margin: 10,
+        marginVertical: 10,
         height: 35,
         justifyContent: 'center',
         alignItems: 'center',

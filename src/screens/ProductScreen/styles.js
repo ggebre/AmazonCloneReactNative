@@ -1,8 +1,13 @@
 import { StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
-    title: {
+    root: {
+        padding: 10,
+        backgroundColor: 'white', 
 
+    },
+    title: {
+        
     },
     price: {
         fontSize: 18,
@@ -14,7 +19,9 @@ const styles = StyleSheet.create({
         textDecorationLine: 'line-through'
     },
     description: {
-        
+        marginVertical: 10,
+        lineHeight: 20,
+
     }
 });
 
