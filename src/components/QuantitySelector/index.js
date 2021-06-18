@@ -4,6 +4,7 @@ import styles from './styles';
 const QuantitySelector = ({quantity, setQuantity}) => {
     const onMinus = () => {
         setQuantity(quantity > 0 ? --quantity : 0)
+        // setQuantity(Math.max(0, quantity - 1))
     }
     const onPlus = () => {
         setQuantity(++quantity)
