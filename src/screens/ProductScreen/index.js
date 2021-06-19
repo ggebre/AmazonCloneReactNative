@@ -11,8 +11,8 @@ const ProductScreen = () => {
     const [selectedQuantity, setSelectedQuantity] = useState(0);
     
     return (
-        <View style={styles.root}>
-            <ScrollView showsVerticalScrollIndicator={false}>
+        <ScrollView style={styles.root} showsVerticalScrollIndicator={false}>
+            
             <Text style={styles.title}> {product.title} </Text>
             {/* Image carousel  */}
             <View>
@@ -52,10 +52,7 @@ const ProductScreen = () => {
             <Button 
                 text={'Buy Now'} 
                 onPress={() => {}}/>
-            </ScrollView>
-            
-            
-        </View>
+        </ScrollView>
     )
 }
 

@@ -6,13 +6,13 @@ import { View, FlatList, Image, StyleSheet, useWindowDimensions } from 'react-na
 const ImageCarousol = ({images}) => {
     const [activeIndex, setActiveIndex] = useState(0)
     const windowWidth = useWindowDimensions().width;
-    const renderItem = ({item}) => (
-        <Image 
-            style={[styles.image, {width: windowWidth - 40}]} 
-            source={{uri: `${item}`}} 
-        />
+const renderItem = ({item, index}) =>  (
+    <Image 
+        style={[styles.image, {width: windowWidth - 40}]} 
+        source={{uri: `${item}`}} 
         
-    )
+    />   
+);
     const onViewableItemsChanged = useCallback(({ viewableItems}) => {
         if(viewableItems.length > 0){
             setActiveIndex(viewableItems[0].index )
@@ -24,6 +24,7 @@ const ImageCarousol = ({images}) => {
             <FlatList
                 data={images}
                 renderItem={renderItem}
+                keyExtractor={(item, index) => index.toString()}
                 horizontal
                 showsHorizontalScrollIndicator = {false}
                 // 
@@ -40,12 +41,15 @@ const ImageCarousol = ({images}) => {
             </FlatList>
             <View style={styles.dots} >
                 {images.map((image, index) => (
-                <View style={[
+                <View 
+                    key={index}
+                    style={[
                     styles.dot,
                     {
                         backgroundColor: index === activeIndex ? '#c9c9c9' : '#ededed'
                     }
-                ]} />
+                    ]} 
+                    />
                 ))}
             </View>
         
