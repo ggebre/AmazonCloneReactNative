@@ -1,11 +1,11 @@
 import React from 'react';
 import { View, Pressable, Text} from 'react-native';
 import styles from './styles';
+import products from '../../data/cart'
 const QuantitySelector = ({quantity, setQuantity}) => {
     const onMinus = () => {
         setQuantity(quantity > 0 ? --quantity : 0)
-        // setQuantity(Math.max(0, quantity - 1))
-        
+        // setQuantity(Math.max(0, quantity - 1)) 
     }
     const onPlus = () => {
         setQuantity(++quantity)
