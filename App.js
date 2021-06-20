@@ -3,7 +3,7 @@ import React from 'react';
 import { SafeAreaView, useColorScheme} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
-import ShoppingCartScreen from './src/screens/shoppingCartScreen';
+import AddressScreen from './src/screens/AddressScreen';
 
 export default function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -18,7 +18,7 @@ export default function App() {
     <SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       
-      <ShoppingCartScreen />
+      <AddressScreen />
     </SafeAreaView>
   );
 }
