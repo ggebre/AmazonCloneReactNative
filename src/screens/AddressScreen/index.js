@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput } from 'react-native';
+import { View, Text, TextInput, Alert } from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 import styles from './styles';
 import countryList from 'country-list';
+import Button from '../../components/Button';
 const AddressScreen = () => {
     
     const countries = countryList.getData();
@@ -14,6 +15,13 @@ const AddressScreen = () => {
     const [city, setCity ] = useState("")
     const [state, setState ] = useState("")
     const [zipCode, setZipCode ] = useState("")
+
+    const onCheckOut = () => {
+        // validate inputs here before submits
+        if(!fullName){
+            Alert.alert('please fill your name')
+        }
+    }
     return (
         <View style={styles.root}> 
             
@@ -97,7 +105,7 @@ const AddressScreen = () => {
                         />
                 </View>
             </View>
-            
+            <Button text="Checkout" onPress={onCheckOut} />
         </View>
     )
 }
