@@ -3,8 +3,6 @@ import {View,StyleSheet, FlatList} from 'react-native';
 import ProductItem from '../../components/productItem/index';
 import products from '../../data/products';
 
-
-
 const HomeScreen = () => {
     return (
         <View style={styles.page}>
