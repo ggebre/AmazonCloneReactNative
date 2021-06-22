@@ -1,20 +1,19 @@
 import React from 'react';
-import {View, Text, Image} from 'react-native';
+import {View, Text, Image, Pressable} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import { useNavigation } from '@react-navigation/native';
 import styles from './styles';
 const ProductItem = (props) => {
-    // id: '1',
-    // title: "Clean Architecture: A Craftsman's Guide to Software Structure and Design",
-    // image: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/products/cleanarchitecture.jpg',
-    // avgRating: 4.2,
-    // ratings: 1325,
-    // price: 20.98,
-    // oldPrice: 24.06,
-   
-    const {title, image, avgRating, ratings, price, oldPrice } = props.item;
+    const navigation = useNavigation();
     
+    const {id, title, image, avgRating, ratings, price, oldPrice } = props.item;
+    console.log(id)
+    const onPress = () => {
+        console.log(id)
+       navigation.navigate('ProductDetails', {id})
+    }
     return (
-            <View style= {styles.root}>
+            <Pressable onPress={onPress} style= {styles.root}>
                 <Image style={styles.image} source={{uri: `${image}`}} />
                 <View style= {styles.rightContainer}>
                     <Text style={styles.title} numberOfLines={3}>{title}</Text>
@@ -34,7 +33,7 @@ const ProductItem = (props) => {
                         {oldPrice && <Text style={styles.oldPrice}>  ${oldPrice}</Text>}
                     </Text>
                 </View>
-            </View>
+            </Pressable>
     )
     
 }
