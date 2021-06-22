@@ -16,11 +16,18 @@ const AddressScreen = () => {
     const [state, setState ] = useState("")
     const [zipCode, setZipCode ] = useState("")
 
+    const [phoneError, setPhoneError] = useState()
     const onCheckOut = () => {
         // validate inputs here before submits
+        // or validate each input when entered at the input 
         if(!fullName){
             Alert.alert('please fill your name')
         }
+    }
+    const validatePhoneNumber = () => {
+       if(phoneNumber.length < 10) {
+           setPhoneError("Invalid")
+       }
     }
     return (
         <View style={styles.root}> 
@@ -51,13 +58,19 @@ const AddressScreen = () => {
             <View style={styles.row}>
                 <Text style={styles.label}>Phone number</Text>
                 <TextInput 
-                    onChangeText={setPhoneNumber}
+                    onChangeText={(phone) => {
+                        setPhoneNumber(phone);
+                        setPhoneError('');
+                    }}
+                    onEndEditing={validatePhoneNumber}
                     value={phoneNumber}
                     style={styles.input}
                     placeholder="Phone number"
                     keyboardType='phone-pad'
                     />
+                { !!phoneError && <Text style={{color: 'red'}}>{phoneError}</Text>}
             </View>
+            
             {/* Address Field */}
             <View style={styles.row}>
                 <Text style={styles.label}>Address</Text>
