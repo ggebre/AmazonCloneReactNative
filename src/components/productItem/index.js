@@ -7,9 +7,9 @@ const ProductItem = (props) => {
     const navigation = useNavigation();
     
     const {id, title, image, avgRating, ratings, price, oldPrice } = props.item;
-    console.log(id)
+    
     const onPress = () => {
-        console.log(id)
+        
        navigation.navigate('ProductDetails', {id})
     }
     return (

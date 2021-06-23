@@ -10,7 +10,7 @@ const ShoppingCartScreen = () => {
     const totalItems = products.reduce((sumItems, item) => sumItems + item.quantity, 0);
 
     const navigation = useNavigation();
-    const onPress = () => {
+    const onCheckout = () => {
         navigation.navigate("Address");
     }
     return (
@@ -38,7 +38,7 @@ const ShoppingCartScreen = () => {
                         </Text>
                         <Button 
                             text="Proceed to Checkout"
-                            onPress={onPress}
+                            onPress={onCheckout}
                             containerStyle={{backgroundColor: '#f7e300', borderColor: '#f7e300'}}/>
                     </View>
                 )}
